@@ -10,7 +10,6 @@ A two-player Tic-Tac-Toe game for the console, made with Go!
 
 ## Controls
 
-`Arrow keys` - Navigate grid
-`Enter` - Select spot
-`q` - Quit
-# tic-tac-go
+`Arrow keys` - Navigate grid \
+`Enter` - Select spot \
+`q` - Quit \
