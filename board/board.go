@@ -15,8 +15,6 @@ var EmptySymbol player.Symbol = player.Symbol(' ')
 var ErrSpotTaken = errors.New("spot is already taken")
 var ErrIndexOutOfBounds = errors.New("index value is out of bounds [3][3]")
 
-// Board
-
 func NewBoard() *Board {
 	board := &Board{{}, {}, {}}
 	board.EmptyBoard()
@@ -29,10 +27,6 @@ func (b *Board) SetSpot(p *position.Position, s player.Symbol) error {
 	}
 	b[p.R][p.C] = s
 	return nil
-}
-
-func (b *Board) GetSpot(p *position.Position) player.Symbol {
-	return b[p.R][p.C]
 }
 
 func (b *Board) Show() {
@@ -72,20 +66,10 @@ func (b *Board) EmptyBoard() {
 		}
 	}
 }
+
 func (b *Board) Erase() {
 	termfmt.EraseLine()
 	termfmt.EraseLinesAbove(5)
-}
-
-func divider() {
-	fmt.Printf("---+---+---\n")
-}
-
-func NewPosition(r, c int) (*position.Position, error) {
-	if r < 0 || r > 2 || c < 0 || c > 2 {
-		return nil, ErrIndexOutOfBounds
-	}
-	return &position.Position{R: r, C: c}, nil
 }
 
 func (b *Board) CheckForWin() string {
@@ -125,3 +109,7 @@ const (
 	TIE     = "TIE"
 	PLAYING = "PLAYING"
 )
+
+func divider() {
+	fmt.Printf("---+---+---\n")
+}

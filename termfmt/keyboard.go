@@ -6,6 +6,9 @@ import (
 	"github.com/eiannone/keyboard"
 )
 
+// Extends functionality with keyboard input handling and the detection of
+//  certain key presses
+
 const (
 	UP    keyboard.Key = 65517
 	DOWN  keyboard.Key = 65516

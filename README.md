@@ -12,4 +12,13 @@ A two-player Tic-Tac-Toe game for the console, made with Go!
 
 `Arrow keys` - Navigate grid \
 `Enter` - Select spot \
-`q` - Quit \
+`q` - Quit
+
+## Structs
+
+`Symbol` - a byte that represents the player's symbol \
+`Player` - player information \
+`Board` - 2D array of Symbols \
+`Position` - coordinate on the board grid
+
+Includes utilities for formatting console output with colors and styles, using ANSI escape codes for text attributes, such as color and underline

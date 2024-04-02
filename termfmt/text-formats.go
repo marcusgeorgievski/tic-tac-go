@@ -4,6 +4,9 @@ import (
 	"fmt"
 )
 
+// Includes utilities for formatting console output with colors and styles,
+//  using ANSI escape codes for text attributes, such as color and underline
+
 const (
 	RED       = "\033[31m"
 	GREEN     = "\033[32m"
