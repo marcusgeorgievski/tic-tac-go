@@ -37,10 +37,10 @@ func (b *Board) Show() {
 		}
 	}
 }
-func (b *Board) ShowSelection(p *position.Position) {
+func (b *Board) ShowSelection(p *position.Position, col string) {
 	highlight := func(i, j int) string {
 		if p.R == i && p.C == j {
-			return termfmt.SprintfFormat(fmt.Sprint(b[i][j]), termfmt.UNDERLINE, termfmt.GREEN)
+			return termfmt.SprintfFormat(fmt.Sprint(b[i][j]), termfmt.UNDERLINE, col)
 		}
 		return fmt.Sprint(b[i][j])
 	}

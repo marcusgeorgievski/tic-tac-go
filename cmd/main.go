@@ -18,6 +18,7 @@ func main() {
 
 	termfmt.PrintfFormat("\nWelcome to tic-tac-go!\n\n", termfmt.ORANGE, termfmt.UNDERLINE)
 
+	// Create players
 	for i := range 2 {
 		termfmt.PrintfFormat("Player "+fmt.Sprint(i+1)+"\n", colors[i])
 		name, symbol := termfmt.GetPlayerInfo()
@@ -25,13 +26,14 @@ func main() {
 		players[i].Symbol = player.Symbol(symbol[0])
 	}
 
-	pos := position.Position{}
-	b := board.Board{}
+	pos := position.Position{} // tracks what cell player is hovering on
+	b := board.Board{}         // board
 	b.EmptyBoard()
 
 	termfmt.PrintfFormat("Begin!\n\n", termfmt.RED)
 
 	play := true
+	// Main game loop
 	for turn := 1; play; turn++ {
 
 		termfmt.EraseLinesAbove(2)
@@ -42,8 +44,9 @@ func main() {
 			termfmt.PrintfFormat("Player 1's turn\n\n", colors[0])
 		}
 
+		// Loops while player is moving in grid
 		for moved := false; !moved; {
-			b.ShowSelection(&pos)
+			b.ShowSelection(&pos, colors[currPlayer(turn)])
 			key = termfmt.GetKey()
 			b.Erase()
 			switch key {
@@ -92,4 +95,11 @@ func main() {
 
 	fmt.Printf("\nThanks for playing!\n")
 	termfmt.PrintfFormat("https://github.com/marcusgeorgievski\n", termfmt.GREEN)
+}
+
+func currPlayer(turn int) int {
+	if turn%2 == 0 {
+		return 1
+	}
+	return 0
 }
